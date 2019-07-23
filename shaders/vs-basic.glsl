@@ -1,13 +1,10 @@
-//
-// VERTEX
-// SHADER
-//
-
-precision mediump float;
-
 attribute vec3 vPosition;
-attribute vec3 vNormal;
 
-void main() {
-    gl_Position = vec4(vPosition, 1.0);
+uniform mat4 u_mWorld;
+uniform mat4 u_mView;
+uniform mat4 u_mProj;
+
+void main()
+{
+    gl_Position =  u_mProj * u_mView * u_mWorld * vec4(vPosition, 1.0);
 }

@@ -5,7 +5,7 @@
 
 body {
     display: flex;
-    background-color: #222;
+    background-color: rgb(198, 234, 255);
     background-image: url('/assets/image/blue-sky-clouds-flying-55787.jpg');
     /* https://www.pexels.com/photo/landscape-sky-clouds-hd-wallpaper-55787/ */
     background-repeat: no-repeat;
