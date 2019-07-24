@@ -8,29 +8,28 @@
 // Main Update Function
 //
 
-var speed = 0.50;
 
 function game_update() {
     if (key.UP) {
-        player.z -= speed; 
+        PlayerMove(player, player.speed);
     }
 
     if (key.DOWN) {
-        player.z += speed;
+        PlayerMove(player, -player.speed);
     }
 
     if (key.LEFT) {
-        player.x -= speed;
+        PlayerTurn(player, player.speed/10);
     }
 
     if (key.RIGHT) {
-        player.x += speed;
+        PlayerTurn(player, -player.speed/10);
     }
 
     GLUpdateUniform(u_mView, flatten(
         lookAt(
-            vec3(player.x, player.y, player.z),   
-            vec3(player.x, 0.0, 0.0),
+            vec3(player.pos.x, player.pos.y, player.pos.z),   
+            vec3(player.at.x, player.at.y, player.at.z),
             vec3(0.0, 1.0, 0.0)
         )
     ));
