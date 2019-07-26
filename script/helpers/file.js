@@ -23,3 +23,9 @@ function loadFileAJAX(filename) {
 function loadFileAJAXasJSON(filename) {
     return JSON.parse(loadFileAJAX(filename));
 }
+
+function loadImage(filename) {
+    var img = new Image();
+    img.src = filename;
+    return img;
+}

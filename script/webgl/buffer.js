@@ -34,4 +34,6 @@ function GLEnableBuffer(buffer, data) {
     if (buffer.attributes.length > 0) {
         GLEnableAttributes(buffer.attributes);
     }
+
+    
 }

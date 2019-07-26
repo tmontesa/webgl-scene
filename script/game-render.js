@@ -11,7 +11,16 @@
 function game_render() {
     gl.clear(gl.COLOR_BUFFER_BIT);
 
-    RenderModel(plane);
-    RenderModel(suzanne);
+    RenderModel(sky);
+    RenderModel(grass);
+    RenderModel(path);
+    RenderModel(tower);
+    RenderModel(house);
+    RenderModels(mountains);
     RenderModels(trees);
+    RenderModels(fences);
+    RenderModels(hays);
+    RenderModels(crates);
+    RenderModels(cows);
+    RenderModels(gems);
 }

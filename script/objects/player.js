@@ -63,6 +63,15 @@ function PlayerTurn(p, angle) {
     PlayerUpdateAt(p, p.pos.x + move_x, p.at.y, p.pos.z + move_z);
 }
 
-var player = new Player(0.0, 8.0, 50.0,
-                        0.0, 8.0, 20.0,
+function PlayerFly(p, distance) {
+    PlayerIncrementPosition(p, 0.0, distance, 0.0);
+    PlayerIncrementAt(p, 0.0, distance, 0.0);
+}
+
+const initial_x = 0.0;
+const initial_y = 10.0;
+const initial_z = 0.0;
+
+var player = new Player(initial_x, initial_y, initial_z,
+                        initial_x + 0.0, initial_y, initial_z - + 20.0,
                         0.50);

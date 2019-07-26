@@ -1,4 +1,30 @@
 //
+// Material Reflection
+//
+
+function MaterialReflection(ambient, diffuse, specular, shine) {
+    this.ambient = ambient;
+    this.diffuse = diffuse;
+    this.specular = specular;
+    this.shine = shine;
+}
+
+function CreateMaterialReflection(a, d, s, shine) {
+    return new MaterialReflection(
+        flatten(vec3(a, a, a)),
+        flatten(vec3(d, d, d)),
+        flatten(vec3(s, s, s)),
+        shine
+    )
+}
+
+function EnableMaterialReflection(material_reflection) {
+    GLUpdateUniform(u_material_reflection_ambient, material_reflection.ambient);
+    GLUpdateUniform(u_material_reflection_diffuse, material_reflection.diffuse);
+    GLUpdateUniform(u_material_reflection_specular, material_reflection.specular);
+}
+
+//
 // Point Light
 //
 

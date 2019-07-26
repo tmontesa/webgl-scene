@@ -26,6 +26,14 @@ function game_update() {
         PlayerTurn(player, -player.speed/10);
     }
 
+    if (key.SPACE) {
+        PlayerFly(player, player.speed);
+    }
+
+    if (key.LSHIFT) {
+        PlayerFly(player, -player.speed);
+    }
+
     GLUpdateUniform(u_mView, flatten(
         lookAt(
             vec3(player.pos.x, player.pos.y, player.pos.z),   
@@ -33,4 +41,13 @@ function game_update() {
             vec3(0.0, 1.0, 0.0)
         )
     ));
+
+    // Write coords in HTML.
+    document.getElementById("player_information").innerHTML = `
+    Position: (${Math.round(player.pos.x)}, ${Math.round(player.pos.y)}, ${Math.round(player.pos.z)})<br /> 
+    Looking at: (${Math.round(player.at.x)}, ${Math.round(player.at.y)}, ${Math.round(player.at.z)})<br />
+    Angle: (${Math.round(player.angle * (180/Math.PI))})
+    `;
+
+    if(key.P) {console.log(`${Math.round(player.pos.x)}.0, 0.0, ${Math.round(player.pos.z)}.0`)};
 }

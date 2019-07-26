@@ -4,18 +4,27 @@
 ╚██╗ ██╔╝██╔══╝  ██╔══██╗   ██║   ██╔══╝   ██╔██╗     ╚════██║██╔══██║██╔══██║██║  ██║██╔══╝  ██╔══██╗
  ╚████╔╝ ███████╗██║  ██║   ██║   ███████╗██╔╝ ██╗    ███████║██║  ██║██║  ██║██████╔╝███████╗██║  ██║
   ╚═══╝  ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚*/
+precision mediump float;
 
 attribute vec3 vPosition;
 attribute vec3 vNormal;
+attribute vec2 vTexcoord;
 
 uniform mat4 u_mWorld;
 uniform mat4 u_mView;
 uniform mat4 u_mProj;
 
 varying vec4 fNormal;
+varying vec2 fTexcoord;
+varying vec4 position;
 
-void main()
-{
-    fNormal = vec4(vNormal, 1.0);
-    gl_Position =  u_mProj * u_mView * u_mWorld * vec4(vPosition, 1.0);
+//
+// Main
+//
+
+void main() {
+  fTexcoord = vTexcoord;
+  fNormal = u_mWorld * vec4(vNormal, 1.0);
+  position =  u_mView * u_mWorld * vec4(vPosition, 1.0);
+  gl_Position =  u_mProj * position;
 }
