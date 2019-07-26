@@ -12,6 +12,7 @@ function Player(x, y, z, at_x, at_y, at_z, speed) {
     this.pos = new Position(x, y, z);
     this.at = new Position(at_x, at_y, at_z);
     this.speed = speed;
+    this.speed_modifier = 0;
 
     this.angle = Math.atan2((at_x - x), (at_z - z));
     this.radius = Math.sqrt(Math.pow(at_x - x, 2) + Math.pow(at_z - z, 2));
@@ -50,8 +51,9 @@ function PlayerIncrementAt(p, x, y, z) {
 //
 
 function PlayerMove(p, distance) {
-    var displace_x = distance * Math.sin(p.angle);
-    var displace_z = distance * Math.cos(p.angle);
+    var distance_modifier = 1 + (p.speed_modifier/10);
+    var displace_x = distance_modifier * distance * Math.sin(p.angle);
+    var displace_z = distance_modifier * distance * Math.cos(p.angle);
     PlayerIncrementPosition(p, displace_x, 0.0, displace_z);
     PlayerIncrementAt(p, displace_x, 0.0, displace_z);
 }
@@ -64,8 +66,9 @@ function PlayerTurn(p, angle) {
 }
 
 function PlayerFly(p, distance) {
-    PlayerIncrementPosition(p, 0.0, distance, 0.0);
-    PlayerIncrementAt(p, 0.0, distance, 0.0);
+    var distance_modifier = 1 + (p.speed_modifier/10);
+    PlayerIncrementPosition(p, 0.0, distance_modifier * distance, 0.0);
+    PlayerIncrementAt(p, 0.0, distance_modifier * distance, 0.0);
 }
 
 const initial_x = 0.0;

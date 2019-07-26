@@ -9,6 +9,9 @@
 //
 
 
+var MaxCD_SpeedModifier = 7;
+var CD_SpeedModifier = MaxCD_SpeedModifier;
+
 function game_update() {
     if (key.UP) {
         PlayerMove(player, player.speed);
@@ -19,11 +22,11 @@ function game_update() {
     }
 
     if (key.LEFT) {
-        PlayerTurn(player, player.speed/10);
+        PlayerTurn(player, player.speed/8);
     }
 
     if (key.RIGHT) {
-        PlayerTurn(player, -player.speed/10);
+        PlayerTurn(player, -player.speed/8);
     }
 
     if (key.SPACE) {
@@ -46,8 +49,14 @@ function game_update() {
     document.getElementById("player_information").innerHTML = `
     Position: (${Math.round(player.pos.x)}, ${Math.round(player.pos.y)}, ${Math.round(player.pos.z)})<br /> 
     Looking at: (${Math.round(player.at.x)}, ${Math.round(player.at.y)}, ${Math.round(player.at.z)})<br />
-    Angle: (${Math.round(player.angle * (180/Math.PI))})
+    Angle: (${Math.round(player.angle * (180/Math.PI))}), Speed: (${player.speed_modifier/10 + 1})
     `;
-
     if(key.P) {console.log(`${Math.round(player.pos.x)}.0, 0.0, ${Math.round(player.pos.z)}.0`)};
+
+    if(key.S && CD_SpeedModifier <= 0) { 
+        player.speed_modifier = (player.speed_modifier + 10) % 40;
+        CD_SpeedModifier = MaxCD_SpeedModifier;
+    }
+    
+    CD_SpeedModifier--;
 }
