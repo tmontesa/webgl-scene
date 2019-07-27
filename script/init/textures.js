@@ -11,4 +11,5 @@ const Textures = {
     "TOWER":    loadImage("assets/models/tower/tower.jpg"),
     "FENCE":    loadImage("assets/models/fence/fence.jpg"),
     "HOUSE":    loadImage("assets/models/house/house.png"),
+    "TORCH":    loadImage("assets/models/torch/torch.jpg")
 }

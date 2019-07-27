@@ -23,4 +23,5 @@ function game_render() {
     RenderModels(crates);
     RenderModels(cows);
     RenderModels(gems);
+    RenderModels(torches);
 }

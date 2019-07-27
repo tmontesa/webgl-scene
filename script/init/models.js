@@ -10,6 +10,7 @@ var hays = [];
 var crates = [];
 var cows = [];
 var gems = [];
+var torches = [];
 
 
 function init_models() {
@@ -794,6 +795,129 @@ function init_models() {
                 -172.0, 1.0, -235.0, 
                 12.0, 0.0, 2.0, 
                 3.0, 3.0, 3.0
+            )
+        )),
+    ];
+
+    torches = [
+        CreateModel(
+            loadFileAJAXasJSON("assets/models/torch/torch.json"),
+            Textures.TORCH,
+            [1.0, 0.9, 0.10, 2.0], 
+            flatten(InstanceTransform(
+                -11.0, 0.0, -29.0, 
+                0.0, 0.0, 2.0, 
+                2.0, 2.0, 2.0
+            )
+        )),
+
+        CreateModel(
+            loadFileAJAXasJSON("assets/models/torch/torch.json"),
+            Textures.TORCH,
+            [1.0, 0.9, 0.10, 2.0], 
+            flatten(InstanceTransform(
+                17.0, 0.0, -27.0, 
+                0.0, 0.0, 2.0, 
+                2.0, 2.0, 2.0
+            )
+        )),
+
+        CreateModel(
+            loadFileAJAXasJSON("assets/models/torch/torch.json"),
+            Textures.TORCH,
+            [1.0, 0.9, 0.10, 2.0], 
+            flatten(InstanceTransform(
+                10.0, 0.0, 28.0, 
+                0.0, 0.0, 2.0, 
+                2.0, 2.0, 2.0
+            )
+        )),
+
+        CreateModel(
+            loadFileAJAXasJSON("assets/models/torch/torch.json"),
+            Textures.TORCH,
+            [1.0, 0.9, 0.10, 2.0], 
+            flatten(InstanceTransform(
+                -28.0, 0.0, -78.0, 
+                0.0, 0.0, 2.0, 
+                2.0, 2.0, 2.0
+            )
+        )),
+
+        CreateModel(
+            loadFileAJAXasJSON("assets/models/torch/torch.json"),
+            Textures.TORCH,
+            [1.0, 0.9, 0.10, 2.0], 
+            flatten(InstanceTransform(
+                2.0, 0.0, -80.0, 
+                0.0, 0.0, 2.0, 
+                2.0, 2.0, 2.0
+            )
+        )),
+
+        CreateModel(
+            loadFileAJAXasJSON("assets/models/torch/torch.json"),
+            Textures.TORCH,
+            [1.0, 0.9, 0.10, 2.0], 
+            flatten(InstanceTransform(
+                -25.0, 0.0, -115.0, 
+                0.0, 0.0, 2.0, 
+                2.0, 2.0, 2.0
+            )
+        )),
+
+        CreateModel(
+            loadFileAJAXasJSON("assets/models/torch/torch.json"),
+            Textures.TORCH,
+            [1.0, 0.9, 0.10, 2.0], 
+            flatten(InstanceTransform(
+                -3.0, 0.0, -117.0, 
+                0.0, 0.0, 2.0, 
+                2.0, 2.0, 2.0
+            )
+        )),
+
+        CreateModel(
+            loadFileAJAXasJSON("assets/models/torch/torch.json"),
+            Textures.TORCH,
+            [1.0, 0.9, 0.10, 2.0], 
+            flatten(InstanceTransform(
+                -14.0, 0.0, -153.0, 
+                0.0, 0.0, 2.0, 
+                2.0, 2.0, 2.0
+            )
+        )),
+
+        CreateModel(
+            loadFileAJAXasJSON("assets/models/torch/torch.json"),
+            Textures.TORCH,
+            [1.0, 0.9, 0.10, 2.0], 
+            flatten(InstanceTransform(
+                6.0, 0.0, -150.0, 
+                0.0, 0.0, 2.0, 
+                2.0, 2.0, 2.0
+            )
+        )),
+
+        CreateModel(
+            loadFileAJAXasJSON("assets/models/torch/torch.json"),
+            Textures.TORCH,
+            [1.0, 0.9, 0.10, 2.0], 
+            flatten(InstanceTransform(
+                -80.0, 0.0, -227.0, 
+                0.0, 0.0, 2.0, 
+                2.0, 2.0, 2.0
+            )
+        )),
+
+        CreateModel(
+            loadFileAJAXasJSON("assets/models/torch/torch.json"),
+            Textures.TORCH,
+            [1.0, 0.9, 0.10, 2.0], 
+            flatten(InstanceTransform(
+                -45.0, 0.0, -243.0, 
+                0.0, 0.0, 2.0, 
+                2.0, 2.0, 2.0
             )
         )),
     ];
