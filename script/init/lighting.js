@@ -13,9 +13,9 @@ function init_lighting() {
         GLCreateUniform(GLUniformType.VECTOR, program, "u_material_reflection.specular", flatten(vec3(1.0, 1.0, 1.0)));
 
     point_light = CreatePointLight(program,
-        "point_light.position", vec3(0.0, 500.0, 0.0),
+        "point_light.position", vec3(0.0, 250.0, 0.0),
         "point_light.intensity.ambient", vec3(0.2, 0.2, 0.2),
-        "point_light.intensity.diffuse", vec3(1.0, 0.8, 0.8),
-        "point_light.intensity.specular", vec3(0.2, 0.2, 0.2)
+        "point_light.intensity.diffuse", vec3(0.9, 0.9, 0.9),
+        "point_light.intensity.specular", vec3(0.9, 0.9, 0.9)
     );
 }

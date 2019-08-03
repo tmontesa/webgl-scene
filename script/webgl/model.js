@@ -16,10 +16,12 @@ function ModelBuffers(VBO, IBO, NBO, TBO) {
     this.TBO = TBO;
 }
 
-function Model(model_data, model_buffers, instance_transform, texture, material_reflection) {
+function Model(model_data, model_buffers, instance_transform, normal_matrix, texture, material_reflection) {
     this.data = model_data;
     this.buffers = model_buffers;
-    this.instance_transform = instance_transform;
+    this.instance_transform = flatten(instance_transform);
+    this.uf_instance_transform = instance_transform;
+    this.normal_matrix = normal_matrix;
     this.texture = texture;
     this.material_reflection = material_reflection;
 }
@@ -58,6 +60,7 @@ function CreateModel(model_import, img, material_reflection_values, instance_tra
         VBO, IBO, NBO, TBO
     );
 
+    var normal_matrix = flatten(transpose(inverse(instance_transform)));
     var texture = GLCreateTexture(img);
 
     var material_reflection = CreateMaterialReflection(
@@ -67,7 +70,7 @@ function CreateModel(model_import, img, material_reflection_values, instance_tra
         material_reflection_values[3]
     );
 
-    var model = new Model(model_data, model_buffers, instance_transform, texture, material_reflection);
+    var model = new Model(model_data, model_buffers, instance_transform, normal_matrix, texture, material_reflection);
     GLUpdateUniform(u_mWorld, model.instance_transform);
     return model;
 }
@@ -80,6 +83,7 @@ function EnableModel(model) {
     GLEnableBuffer(model.buffers.NBO);
     GLEnableBuffer(model.buffers.TBO);
     GLUpdateUniform(u_mWorld, model.instance_transform);
+    GLUpdateUniform(u_mNormal, flatten(transpose(inverse(mult(mView, model.uf_instance_transform)))));
     EnableMaterialReflection(model.material_reflection);
     GLEnableTexture(model.texture);
 }

@@ -128,7 +128,7 @@ void main() {
 
     // Calculate intensities.
     vec3 Ip = phong(u_material_reflection, point_light.intensity, N, V, Lp, Rp, 10.0);
-    vec3 intensity = clamp(Ip * 1.35, 0.0, 1.0);
+    vec3 intensity = clamp(Ip, 0.0, 1.0);
 
     vec4 texel = texture2D(u_sampler, fTexcoord);
     gl_FragColor = vec4(texel.rgb * intensity, texel.a);

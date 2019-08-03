@@ -37,10 +37,10 @@ function PointLight(position, ambient, diffuse, specular, location) {
 }
 
 function PointLightLocation(position_location, ambient_location, diffuse_location, specular_location) {
-    this.position_location = position_location;
-    this.ambient_location = ambient_location;
-    this.diffuse_location = diffuse_location;
-    this.specular_location = specular_location; 
+    this.position = position_location;
+    this.ambient = ambient_location;
+    this.diffuse = diffuse_location;
+    this.specular = specular_location; 
 }
 
 function CreatePointLight(shader_program,
@@ -75,13 +75,13 @@ function SpotLight(position, at, in_angle, out_angle, ambient, diffuse, specular
 }
 
 function SpotLightLocation(position_location, at_location, in_angle_location, out_angle_location, ambient_location, diffuse_location, specular_location) {
-    this.position_location = position_location;
-    this.at_location = at_location;
-    this.in_angle_location = in_angle_location;
-    this.out_angle_location = out_angle_location;
-    this.ambient_location = ambient_location;
-    this.diffuse_location = diffuse_location;
-    this.specular_location = specular_location; 
+    this.position = position_location;
+    this.at = at_location;
+    this.in_angle = in_angle_location;
+    this.out_angle = out_angle_location;
+    this.ambient = ambient_location;
+    this.diffuse = diffuse_location;
+    this.specular = specular_location; 
 }
 
 function CreateSpotLight(shader_program,

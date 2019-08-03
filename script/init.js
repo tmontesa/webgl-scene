@@ -6,6 +6,7 @@
 
 var canvas, gl;
 var program;
+const FRAMES = 20;
 
 function initialize() {
     console.log("Initializing...");
@@ -40,5 +41,5 @@ function initialize() {
     gl.cullFace(gl.BACK);
 
     console.log("Good to go!");
-    setInterval(game_loop, 20);
+    setInterval(game_loop, FRAMES);
 }

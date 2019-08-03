@@ -1,4 +1,4 @@
-var u_mWorld, u_mView, u_mProj;
+var u_mWorld, u_mView, u_mProj, u_mNormal;
 
 function init_transformations() {
     u_mWorld = GLCreateUniform(GLUniformType.MATRIX, program, "u_mWorld", flatten(mat4()));
@@ -19,4 +19,6 @@ function init_transformations() {
             5000
         )
     ));
+
+    u_mNormal = GLCreateUniform(GLUniformType.MATRIX, program, "u_mNormal", flatten(mat4()));
 }
